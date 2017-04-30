@@ -1,0 +1,282 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Item
+ *
+ * @ORM\Table(name="item")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Item\ItemRepository")
+ */
+class Item
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, unique=true)
+     */
+    private $name;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="price", type="integer")
+     */
+    private $price;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="height", type="integer", nullable=true)
+     */
+    private $height;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="weight", type="integer", nullable=true)
+     */
+    private $weight;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="color", type="string", length=255, nullable=true)
+     */
+    private $color;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", nullable=true)
+     */
+    private $image;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="details", type="string", length=255, nullable=true)
+     */
+    private $details;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Item
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set price
+     *
+     * @param integer $price
+     *
+     * @return Item
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return int
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Item
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set details
+     *
+     * @param string $details
+     *
+     * @return Item
+     */
+    public function setDetails($details)
+    {
+        $this->details = $details;
+
+        return $this;
+    }
+
+    /**
+     * Get details
+     *
+     * @return string
+     */
+    public function getDetails()
+    {
+        return $this->details;
+    }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="items")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    protected $category;
+
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\Category $category
+     *
+     * @return Item
+     */
+    public function setCategory(\AppBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+
+    /**
+     * Set color
+     *
+     * @param string $color
+     *
+     * @return Item
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    /**
+     * Get color
+     *
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * Set height
+     *
+     * @param integer $height
+     *
+     * @return Item
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    /**
+     * Get height
+     *
+     * @return integer
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * Set weight
+     *
+     * @param integer $weight
+     *
+     * @return Item
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Get weight
+     *
+     * @return integer
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+}

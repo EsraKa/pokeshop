@@ -1,0 +1,103 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AdminBundle:Dashboard{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#products" role="tab">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#categories" role="tab">Categories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#orders" role="tab">Orders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="products" role="tabpanel">
+                <a href="{{ path("addItem") }}" class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus"></span> Ajouter un article
+                </a>
+
+                <div class="panel panel-list">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading"><p>Liste des articles</p></div>
+
+                    <!-- Table -->
+                    <table class="table">
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Details</th>
+                            <th>delete</th>
+                        </tr>
+                        {% for itm in items %}
+                            <tr>
+                                <td><img src="{{ itm.image }}" style="width: 40px"></td>
+                                <td>{{ itm.name }}</td>
+                                <td>{{ itm.price }}</td>
+                                <td>{{ itm.details }}</td>
+
+                                <td>
+                                    <a href="{{ path("deleteItem", {'id':itm.id}) }}" class="btn btn-danger">
+                                        <span class="fa fa-trash"></span>
+                                    </a>
+                                    <a href="{{ path("editItem", {'id':itm.id}) }}" class="btn btn-info">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="tab-pane" id="categories" role="tabpanel">
+
+                <a href="{{ path("addCategory") }}" class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus"></span> Add a category
+                </a>
+
+                <div class="panel panel-list">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading"><p>List of category</p></div>
+
+                    <!-- Table -->
+                    <table class="table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Delete</th>
+                        </tr>
+                        {% for cat in categories %}
+                            <tr>
+                                <td>{{ cat.id }}</td>
+                                <td>{{ cat.name }}</td>
+
+                                <td>
+                                    <a href="{{ path("deleteCategory", {'id':cat.id}) }}" class="btn btn-danger">
+                                        <span class="fa fa-trash"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="orders" role="tabpanel">...</div>
+            <div class="tab-pane" id="settings" role="tabpanel">...</div>
+        </div>
+
+
+    </div>
+{% endblock %}

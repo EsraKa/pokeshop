@@ -1,0 +1,117 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Item:all{% endblock %}
+
+{% block body %}
+    <!--/.navbar-header-->
+    <div class="inner-banner">
+        <div class="container">
+            <div class="banner-top inner-head">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                <div class="logo">
+                    <h1><a href="/"><span>P</span> -Shop</a></h1>
+                </div>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">POKEMON <b class="caret"></b></a>
+                            <ul class="dropdown-menu multi-column columns-3">
+                                <div class="row">
+
+
+                                    <div class="col-sm-6">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>NEW IN</h6>
+
+                                        </ul>
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>CATEGORIES</h6>
+
+                                        </ul>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </ul>
+                        </li>
+
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+                <!--/.navbar-->
+            </div>
+        </div>
+    </div>
+
+{% block fos_user_content %}
+{% endblock fos_user_content %}
+
+{% block content %}
+{% endblock content %}
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="footer_top">
+                <div class="span_of_4 col-md-12 col-sm-12" >
+                    <div class="col-md-3 col-sm-3 span1_of_4">
+                        <h4>Shop</h4>
+                        <ul class="f_nav">
+                            <li><a href="#">new arrivals</a></li>
+                            <li><a href="#">pokemon</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-3 span1_of_4">
+                        <h4>help</h4>
+                        <ul class="f_nav">
+                            <li><a href="#">frequently asked  questions</a></li>
+                            <li><a href="#">contact us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-3 span1_of_4">
+                        <h4>account</h4>
+                        <ul class="f_nav">
+                            <li><a href="/">login</a></li>
+                            <li><a href="/register">create an account</a></li>
+                            <li><a href="#">create wishlist</a></li>
+                            <li><a href="checkout.html">my shopping bag</a></li>
+                            <li><a href="#">create wishlist</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-3 span1_of_4">
+                        <h4>popular</h4>
+                        <ul class="f_nav">
+                            <li><a href="#">new arrivals</a></li>
+                            <li><a href="#">pokemon</a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 cards text-center">
+
+            </div>
+            <div class="copyright text-center">
+                <p>© 2015 Eshop.</p>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

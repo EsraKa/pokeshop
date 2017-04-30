@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AdminBundle:Item:add{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Welcome to the Item:add page</h1>
+
+    {% for itm in items %}
+        <h1>Edit</h1>
+
+        {{ form(form) }}
+        <a href="{{ path("editItem", {'id':itm.id}) }}" class="btn btn-info">
+            <span class="fa fa-edit"></span>
+        </a>
+    {% endfor %}
+    </div>
+{% endblock %}

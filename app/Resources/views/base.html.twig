@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}">
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+    </head>
+    <body>
+
+    <div class="header">
+        <div class="header-top-strip">
+            <div class="container">
+                <div class="header-top-left">
+                    <ul>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li>
+                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{{ path('fos_user_security_login') }}"> <span class="fa fa-user"> </span> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        </li>
+                        <li>
+                            <a href="/register"><span class="fa fa-lock"> </span>
+                                Créer un Compte</a>
+                        </li>
+
+                        {% endif %}
+
+
+                    </ul>
+                </div>
+                <div class="header-right">
+                    <div class="cart box_1">
+                        <a href="/checkout">
+                            <h3><img src="../../images/bag.png" alt=""></h3>
+                        </a>
+                        <p><a href="/checkout" class="simpleCart_empty">Bag</a></p>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+
+        {% block body %}{% endblock %}
+
+
+
+
+    {% block javascripts %}{% endblock %}
+
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+   </body>
+
+</html>
